@@ -65,3 +65,12 @@ Nexium Remote Internship - Assignment 1
 This project is open-source and available under the MIT License.
 
 Enjoy your daily dose of inspiration with QuoteSpark!
+
+**Welcome Screen**
+![image](https://github.com/user-attachments/assets/3b1f8d85-f19d-44c4-a840-e13c42d9ccba)
+
+**Search for Quotes**
+![image](https://github.com/user-attachments/assets/ec1b4e42-fcfb-45d7-9ad2-b527883cd734)
+
+**Quotes**
+![image](https://github.com/user-attachments/assets/b56ce6ea-d820-491a-8c14-ff6c14a5db8b)
