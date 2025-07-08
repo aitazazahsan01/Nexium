@@ -16,7 +16,6 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
@@ -176,7 +175,7 @@ export default function HomePage() {
         </h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
           Unlock a world of wisdom and motivation. Simply select a topic, and
-          we'll deliver insightful quotes to brighten your moment.
+          we ll deliver insightful quotes to brighten your moment.
         </p>
       </section>
 
@@ -252,7 +251,7 @@ export default function HomePage() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-gray-800 text-xl italic leading-relaxed">
-                        "{q.quote}"
+                        {q.quote}
                       </p>
                     </CardContent>
                   </Card>
