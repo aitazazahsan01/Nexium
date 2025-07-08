@@ -16,7 +16,6 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { Input } from '@/components/ui/input'; // Input component was previously removed, re-adding for completeness if needed elsewhere
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
@@ -177,7 +176,7 @@ export default function HomePage() {
         </h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
           Unlock a world of wisdom and motivation. Simply select a topic, and
-          we'll deliver insightful quotes to brighten your moment.
+          we will deliver insightful quotes to brighten your moment.
         </p>
       </section>
 
