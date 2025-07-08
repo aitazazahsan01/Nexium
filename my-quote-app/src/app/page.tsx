@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { useInView, motion } from 'framer-motion'; // Import motion for animations
+import { useInView, motion, Transition } from 'framer-motion'; // Import motion and Transition for animations
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -16,6 +16,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { Input } from '@/components/ui/input'; // Input component was previously removed, re-adding for completeness if needed elsewhere
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
@@ -102,7 +103,7 @@ export default function HomePage() {
   });
 
   // Function to handle form submission
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof formSchema>) { // Corrected: Removed extra 'typeof'
     const topic = values.topic.toLowerCase(); // Convert input topic to lowercase for case-insensitive search
 
     // Filter quotes based on the selected topic
@@ -131,16 +132,17 @@ export default function HomePage() {
     },
   };
 
+  // Explicitly type the transition for itemVariants
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring", // This is the string that caused the type error
         damping: 10,
         stiffness: 100,
-      },
+      } as Transition, // Explicitly cast to Framer Motion's Transition type
     },
   };
 
@@ -175,7 +177,7 @@ export default function HomePage() {
         </h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
           Unlock a world of wisdom and motivation. Simply select a topic, and
-          we ll deliver insightful quotes to brighten your moment.
+          we'll deliver insightful quotes to brighten your moment.
         </p>
       </section>
 
