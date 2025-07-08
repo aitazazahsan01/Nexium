@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**✨ QuoteSpark: Your Daily Dose of Inspiration ✨**
+Welcome to QuoteSpark, a delightful web application designed to ignite your day with wisdom and motivation! Generate insightful quotes based on various topics, all wrapped in a smooth, animated, and visually appealing user interface.
 
-## Getting Started
+**🚀 Live Demo**
+Experience QuoteSpark live: (https://code-aitazaz-internshipnexium.vercel.app/)
 
-First, run the development server:
+**🌟 Features**
+Dynamic Quote Generation: Get 3 random quotes on a chosen topic.
 
-```bash
+Topic Selection: Select from diverse pre-defined topics (e.g., Inspiration, Life, Technology, Happiness, Love, Friendship, Wisdom, Change) via a dropdown.
+
+**Animated UI**: Enjoy scroll-triggered animations, subtle hover effects, and smooth transitions.
+
+**Personalized Intro**: An animated section featuring developer details.
+
+**🛠️ Technologies**
+Next.js 14+: React framework for robust web applications.
+
+Tailwind CSS: Utility-first CSS for rapid styling.
+
+Shadcn UI: Accessible and customizable UI components.
+
+Framer Motion: For production-ready animations.
+
+Zod: TypeScript-first schema validation.
+
+React Hook Form: For efficient form management.
+
+**⚙️ Setup & Installation**
+Clone the repository:
+
+git clone https://github.com/aitazazahsan01/Nexium/tree/main/my-quote-app
+cd my-quote-app
+
+
+**Install Dependencies:**
+
+npm install
+
+Add Shadcn UI Components (if not already done):
+
+npx shadcn-ui@latest add form input button card scroll-area separator select
+
+**Run Development Server:**
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**💡 How to Use**
+Scroll down to see the animated sections.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Use the "Select a topic" dropdown to choose a category.
 
-## Learn More
+Click "Generate Quotes" to display three random quotes on your chosen topic.
 
-To learn more about Next.js, take a look at the following resources:
+**👨‍💻 About the Developer**
+Muhammad Aitazaz Ahsan
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Student at NUST
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Nexium Remote Internship - Assignment 1
 
-## Deploy on Vercel
+**📄 License**
+This project is open-source and available under the MIT License.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Enjoy your daily dose of inspiration with QuoteSpark!
