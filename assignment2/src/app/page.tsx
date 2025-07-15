@@ -1,15 +1,23 @@
 // app/page.tsx
 'use client';
-// At the top of app/page.tsx
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+
 import { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Loader2, Languages, AlertTriangle, ArrowDown, History } from 'lucide-react';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
+// --- THIS IS THE MAJOR CHANGE ---
+// We are now deep-importing each icon to bypass the Next.js build bug.
+import Sparkles from 'lucide-react/dist/esm/icons/sparkles';
+import Loader2 from 'lucide-react/dist/esm/icons/loader-2';
+import Languages from 'lucide-react/dist/esm/icons/languages';
+import AlertTriangle from 'lucide-react/dist/esm/icons/alert-triangle';
+import ArrowDown from 'lucide-react/dist/esm/icons/arrow-down';
+import History from 'lucide-react/dist/esm/icons/history';
+
+// (Your type definitions remain the same)
 type SummaryResult = {
   summary_en: string;
   summary_ur: string;
@@ -23,6 +31,7 @@ type RecentSummary = {
   summary_ur: string;
 };
 
+
 export default function HomePage() {
   const [url, setUrl] = useState('');
   const [summary, setSummary] = useState<SummaryResult | null>(null);
@@ -30,7 +39,6 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
   const [recentSummaries, setRecentSummaries] = useState<RecentSummary[]>([]);
 
-  // Fetch recent summaries on page load
   useEffect(() => {
     const fetchRecent = async () => {
       try {
@@ -70,12 +78,10 @@ export default function HomePage() {
       const data: SummaryResult = await response.json();
       setSummary(data);
       
-      // Refresh recent summaries list
       const recentResponse = await fetch('/api/recent');
       const recentData = await recentResponse.json();
       setRecentSummaries(recentData);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -83,8 +89,7 @@ export default function HomePage() {
     }
   };
   
-  // Animation variants for Framer Motion
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -94,28 +99,11 @@ export default function HomePage() {
     },
   };
 
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { y: 20, opacity: 0 },
     show: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-  // The ': Variants' part is the crucial fix
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-};
-
-// The ': Variants' part is the crucial fix
-const fadeInUp: Variants = {
-  hidden: { y: 20, opacity: 0 },
-  show: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
-};
-  
   return (
     <div className="flex flex-col min-h-screen w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-y-auto">
       {/* Hero Section */}
@@ -164,7 +152,7 @@ const fadeInUp: Variants = {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+              <form onSubmit={ handleSubmit } className="flex flex-col sm:flex-row gap-3">
                 <Input
                   type="url"
                   placeholder="https://example.com/blog/my-post"
@@ -179,7 +167,6 @@ const fadeInUp: Variants = {
               </form>
               <div className="mt-6 min-h-[150px]">
                 <AnimatePresence>
-                  {/* Result and Error Display Logic remains same but styled */}
                    {error && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
