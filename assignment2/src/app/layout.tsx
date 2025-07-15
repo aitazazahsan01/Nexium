@@ -1,10 +1,19 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Nastaliq_Urdu } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-sans" 
+});
+
+const noto_nastaliq = Noto_Nastaliq_Urdu({
+  subsets: ['arabic'],
+  weight: ['400', '700'],
+  variable: '--font-urdu',
+});
 
 export const metadata: Metadata = {
   title: "Blog Summarizer AI | Aitazaz Ahsan",
@@ -18,16 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Add Google Fonts for Urdu */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          inter.variable
+          inter.variable,
+          noto_nastaliq.variable
         )}
       >
         {children}
