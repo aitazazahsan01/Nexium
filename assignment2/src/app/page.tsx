@@ -1,6 +1,7 @@
 // app/page.tsx
 'use client';
-
+// At the top of app/page.tsx
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -98,6 +99,23 @@ export default function HomePage() {
     show: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
+  // The ': Variants' part is the crucial fix
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+// The ': Variants' part is the crucial fix
+const fadeInUp: Variants = {
+  hidden: { y: 20, opacity: 0 },
+  show: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
+};
+  
   return (
     <div className="flex flex-col min-h-screen w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-y-auto">
       {/* Hero Section */}
