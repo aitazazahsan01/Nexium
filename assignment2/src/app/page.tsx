@@ -8,12 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 
-import Sparkles from 'lucide-react/dist/esm/icons/sparkles';
-import Loader2 from 'lucide-react/dist/esm/icons/loader-2';
-import Languages from 'lucide-react/dist/esm/icons/languages';
-import AlertTriangle from 'lucide-react/dist/esm/icons/alert-triangle';
-import ArrowDown from 'lucide-react/dist/esm/icons/arrow-down';
-import History from 'lucide-react/dist/esm/icons/history';
+// --- THIS IS THE CORRECT, SIMPLE IMPORT ---
+import { Sparkles, Loader2, Languages, AlertTriangle, ArrowDown, History } from 'lucide-react';
 
 type SummaryResult = {
   summary_en: string;
@@ -43,7 +39,7 @@ export default function HomePage() {
         if (!response.ok) return;
         const data: RecentSummary[] = await response.json();
         setRecentSummaries(data);
-      } catch { // <-- FIX: Removed the unused 'e' variable
+      } catch {
         console.error("Could not fetch recent summaries");
       }
     };
@@ -79,7 +75,6 @@ export default function HomePage() {
       const recentData = await recentResponse.json();
       setRecentSummaries(recentData);
 
-    // --- FIX: This is the main error fix. Changed 'err: any' to be type-safe. ---
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);
