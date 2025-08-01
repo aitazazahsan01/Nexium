@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+/* A simplified version for debugging the build process */
+.glass-card {
+  background: rgba(255, 255, 255, 0.4);
+  /* backdrop-filter: blur(10px); */ /* Temporarily disabled for testing */
+  /* -webkit-backdrop-filter: blur(10px); */ /* Temporarily disabled for testing */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white transition-all duration-300 ease-in-out;
+    background-size: 200% auto;
+  }
+  .btn-primary:hover {
+    @apply shadow-lg;
+    background-position: right center;
+  }
+  .btn-primary:disabled {
+    @apply from-gray-400 via-gray-500 to-gray-600 cursor-not-allowed transform-none shadow-none;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
